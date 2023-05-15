@@ -44,3 +44,31 @@
 <script src="{{ asset('admin_assets') }}/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="{{ asset('admin_assets') }}/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="{{ asset('admin_assets') }}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script src="https://cdn.tiny.cloud/1/4zw697k2qjv5tbmfbscnw8l7lq50s4lb97f2vy49pv8x83n6/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+   tinymce.init({
+        selector: 'textarea',
+        plugins: 'autolink lists link image imagetools',
+        toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | image',
+    });
+</script>
+<script>
+  $(function () {
+        //Date picker
+    $('#reservationdate').datetimepicker({
+    format: 'YYYY-MM-DD'
+    });
+  })
+  // BS-Stepper Init
+  
+    $(document).ready(function() {
+/*      $(".btn-success").click(function(){
+          var html = $(".clone").html();
+          $(".increment").after(html);
+      });
+      $("body").on("click",".btn-danger",function(event){
+          $(this).parents(".form-group").remove();
+      });*/
+    });
+
+</script>

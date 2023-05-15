@@ -41,7 +41,7 @@ class LoginController extends Controller
             return redirect('admin');
         }
         else{
-            dd("dfdfdfd");
+            return redirect('admin')->with('status_error', 'Incorrect email or password.');
         }
     }
 

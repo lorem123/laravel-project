@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Auth;
 
 class IsAdmin
 {
@@ -15,6 +16,11 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        return $next($request);
+     if (!Auth::guard('admin_web')->check()) {
+          
+          return redirect('admin');
+     }
+      return $next($request);
+
     }
 }

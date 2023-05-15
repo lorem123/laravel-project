@@ -10,80 +10,28 @@
                @csrf
               <div class="row">
                 <div class="col-md-6 mb-4">
-
                   <div class="form-outline">
-                    <input type="text" id="firstName" name="firstName" class="form-control form-control-lg" required />
-                    <label class="form-label" for="firstName">First Name</label>
-                  </div>
-
-                </div>
-                <div class="col-md-6 mb-4">
-
-                  <div class="form-outline">
-                    <input type="text" id="lastName" name="lastName" class="form-control form-control-lg" required />
-                    <label class="form-label" for="lastName">Last Name</label>
+                    <label class="form-label" for="firstName">Name</label>
+                    <input type="text" id="name" name="name" class="form-control form-control-lg" required />
                   </div>
 
                 </div>
               </div>
-
-              <div class="row">
-                <div class="col-md-6 mb-4 d-flex align-items-center">
-
-                  <div class="form-outline datepicker w-100">
-                    <input type="text" class="form-control form-control-lg" id="birthdayDate" name="birthdayDate" />
-                    <label for="birthdayDate" class="form-label">Birthday</label>
-                  </div>
-
-                </div>
-                <div class="col-md-6 mb-4">
-
-                  <h6 class="mb-2 pb-1">Gender: </h6>
-
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="gender" id="femaleGender"
-                      value="2" checked />
-                    <label class="form-check-label" for="femaleGender">Female</label>
-                  </div>
-
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="gender" id="1"
-                      value="option2" />
-                    <label class="form-check-label" for="maleGender">Male</label>
-                  </div>
-
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="gender" id="otherGender"
-                      value="3" />
-                    <label class="form-check-label" for="otherGender">Other</label>
-                  </div>
-
-                </div>
-              </div>
-
               <div class="row">
                 <div class="col-md-6 mb-4 pb-2">
 
                   <div class="form-outline">
-                    <input type="email" id="emailAddress" name="emailAddress" class="form-control form-control-lg" />
                     <label class="form-label" for="emailAddress">Email</label>
-                  </div>
-
-                </div>
-                <div class="col-md-6 mb-4 pb-2">
-
-                  <div class="form-outline">
-                    <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control form-control-lg" />
-                    <label class="form-label" for="phoneNumber">Phone Number</label>
+                    <input type="email" id="emailAddress" name="emailAddress" class="form-control form-control-lg" />
                   </div>
 
                 </div>
               </div>
 
               <div class="row">
-                <div class="col-12">
+                <div class="col-6">
+                    <label class="form-label" for="Password">Password</label>
                     <input type="password" id="password" name="password" class="form-control form-control-lg" required />
-                    <label class="form-label" for="phoneNumber">Password</label>
                 </div>
               </div>
 

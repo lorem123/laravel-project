@@ -5,12 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Registers extends Model
+class Profile extends Model
 {
     use HasFactory;
-    protected $table = "users";
-    public function profile()
+    protected $fillable = ['fname', 'lname'];
+
+    public function user()
     {
-        return $this->hasOne(Profile::class);
+       return $this->belongsTo(User::class);
     }
 }

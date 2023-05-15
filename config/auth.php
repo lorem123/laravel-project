@@ -43,7 +43,12 @@ return [
         'admin_web' => [
             'driver' => 'session',
             'provider' => 'admin_login',
-        ],       
+        ],
+        'api' => [
+            'driver' => 'jwt',
+            'provider' => 'users',
+            'hash' => false,
+        ],    
     ],
 
 

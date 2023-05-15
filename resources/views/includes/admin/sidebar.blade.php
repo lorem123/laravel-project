@@ -3,7 +3,7 @@
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="{{ asset('admin_assets') }}/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">Dotsquares</span>
     </a>
 
     <!-- Sidebar -->
@@ -11,11 +11,17 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{ asset('admin_assets') }}/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          @if (Auth::guard('admin_web') && isset(auth()->guard('admin_web')->user()->imagename))
+          <img src="{{ asset('images/' .  auth()->guard('admin_web')->user()->imagename) }}" class="img-thumbnail profile-user-img img-fluid img-circle" class="img-circle elevation-2" alt="User Image">
+          @else 
+          <img src="{{ asset('images/profile.png') }}" class="img-circle elevation-2" alt="User Image">
+          @endif          
         </div>
-        <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
-        </div>
+        @if (Auth::guard('admin_web'))
+          <div class="info">
+            <a href="#" class="d-block">{{ auth()->guard('admin_web')->user()->name }}</a>
+          </div>
+        @endif
       </div>
 
       <!-- SidebarSearch Form -->
@@ -35,8 +41,8 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
+          <li class="nav-item {{ (request()->is('admin')) ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ (request()->is('admin')) ? 'active' : '' }}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -52,19 +58,28 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
-              <p>
-                Data
-                <i class="fas fa-angle-left right"></i>
-              </p>
+          <li class="nav-item {{ (request()->is('admin/users')) ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ (request()->is('admin/users')) ? 'active' : '' }}">
+              <i class="fas fa-users nav-icon"></i>
+              <p> Users<i class="fas fa-angle-left right"></i></p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{ route('admin.users') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Users</p>
+                  <p>User List</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item {{ (request()->is('admin/products')) ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ (request()->is('admin/products')) ? 'active' : '' }}">
+              <i class="fas fa-users nav-icon"></i>
+              <p> Products<i class="fas fa-angle-left right"></i></p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('admin.products') }}" class="nav-link">
+                  <p>Product List</p>
                 </a>
               </li>
             </ul>

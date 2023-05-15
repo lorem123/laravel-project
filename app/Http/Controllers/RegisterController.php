@@ -13,16 +13,12 @@ class RegisterController extends Controller
       return view('register');
     }
     public function savedata(Request $request) {
-        $fname = $request->input('firstName');
-        $lname = $request->input('lastName');
-        $dob = $request->input('gender');
-        $gender = $request->input('gender');
+        $name = $request->input('name');
         $email = request()->input('emailAddress');
-        $phone = $request->input('phoneNumber');
         $password = Hash::make($request->input('password'));
 
         $registers = new Registers();
-        $registers->name =$fname;
+        $registers->name =$name;
         $registers->email = $email;
         $registers->password = $password;
         if($registers->save()){
